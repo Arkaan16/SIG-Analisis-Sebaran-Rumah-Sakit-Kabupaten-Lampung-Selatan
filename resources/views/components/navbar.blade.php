@@ -9,7 +9,7 @@
             <img class="toggle hidden" src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png" width="40" height="40" />
         </button>
     </div>
-    <div class="toggle hidden w-full md:w-auto md:flex text-right text-bold mt-5 md:mt-0 md:border-none space-y-3 md:space-y-0 md:space-x-5">
+    <div id="mobile-menu" class="toggle hidden w-full md:w-auto md:flex text-right font-bold mt-5 md:mt-0 md:border-none space-y-3 md:space-y-0 md:space-x-5">
         <a href="{{ url('/') }}#home" 
            class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Request::is('/') ? 'bg-sky-700 rounded text-white' : '' }}">
            Beranda
@@ -20,3 +20,18 @@
         </a>
     </div>
 </nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const toggleIcons = hamburger.querySelectorAll(".toggle");
+
+        hamburger.addEventListener("click", function () {
+            // Toggle the visibility of the menu
+            mobileMenu.classList.toggle("hidden");
+            // Toggle the icons
+            toggleIcons.forEach(icon => icon.classList.toggle("hidden"));
+        });
+    });
+</script>

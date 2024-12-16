@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf"></script>
 
-
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
@@ -23,6 +22,35 @@
         .active-nav-link { background: #1947ee; }
         .nav-item:hover { background: #1947ee; }
         .account-link:hover { background: #3d68ff; }
+        /* Style khusus untuk tampilan mobile */
+/* Style khusus untuk tampilan mobile */
+@media (max-width: 640px) {
+    #sidebar {
+        display: none; /* Secara default sidebar tersembunyi pada mobile */
+        position: fixed; /* Menggunakan fixed agar sidebar tetap di posisi kiri atas layar */
+        top: 0;
+        left: 0;
+        z-index: 9999; /* Pastikan sidebar berada di atas elemen lainnya */
+        width: 250px; /* Lebar sidebar pada mobile */
+        height: 100%;
+        background-color: #3d68ff; /* Warna sidebar */
+    }
+
+    #sidebar.show {
+        display: block; /* Sidebar ditampilkan ketika tombol hamburger ditekan */
+    }
+}
+
+/* Pastikan tombol hamburger berada di atas */
+.sm:hidden {
+    z-index: 10000; /* Z-index lebih tinggi untuk tombol hamburger */
+}
+
+/* Untuk memastikan bahwa sidebar dan konten memiliki transisi yang mulus */
+.transition-all {
+    transition: all 0.3s ease;
+}
+
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla">
@@ -34,5 +62,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <!-- ChartJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+
 </body>
 </html>
