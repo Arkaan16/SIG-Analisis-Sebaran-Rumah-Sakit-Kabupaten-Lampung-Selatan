@@ -109,7 +109,7 @@ class RsController extends Controller
             if ($hospital->foto) {
                 Storage::delete($hospital->foto);
             }
-            $fotoPath = $request->file('foto')->store('public/fotos');
+            $fotoPath = $request->file('foto')->store('public/foto');
         }
 
         $hospital->update([
